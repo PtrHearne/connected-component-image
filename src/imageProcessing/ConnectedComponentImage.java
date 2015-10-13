@@ -1,8 +1,8 @@
 package imageProcessing;
 
 
+import java.awt.Color;
 import edu.princeton.cs.introcs.Picture;
-
 /*************************************************************************
  * Compilation: javac ConnectedComponentImage.java
  *
@@ -15,16 +15,24 @@ import edu.princeton.cs.introcs.Picture;
  *************************************************************************/
 public class ConnectedComponentImage {
 
-    Picture picture;
+    static Long     counter = 0l;
+    private String  fileLocation;
+    private Picture picture;
+    private int     height;
+    private int     width;
+    public Long     id;
 
-    /**
-     * Initialise fields
-     *
-     * @param fileLocation
-     */
+
+
     public ConnectedComponentImage(String fileLocation) {
-        // TODO
+        this.fileLocation = fileLocation;
+        this.picture      = new picture(fileLocation);
+        this.id           = counter++;
+        this.height       = new height;
+        this.width        = new width;
     }
+
+
 
     /**
      * Returns the number of components identified in the image.
@@ -59,8 +67,10 @@ public class ConnectedComponentImage {
     }
 
     public Picture getPicture() {
-        // TODO Auto-generated method stub
-        return null;
+
+        return picture;
+    }
+
     }
 
     /**
@@ -70,7 +80,29 @@ public class ConnectedComponentImage {
      */
     public Picture binaryComponentImage() {
 
+
+          if(picture != null) {
+              int width = picture.width();
+              int height = picture.height();
+              // convert to grayscale
+              for (int x = 0; x < width; x++) {
+                  for (int y = 0; y < height; y++) {
+                      Color color = picture.get(x, y);
+                      Color gray = Luminance.toGray(color);
+                      picture.set(x, y, gray);
+                  }
+                  picture.show();
+              }
+          }
         return null;
     }
 
-}
+    public String getFileLocation() {
+
+        return fileLocation;
+    }
+
+    public void setFileLocation(String fileLocation) {
+        fileLocation = "C:/Users/Owner/IdeaProjects/connected-component-image/images/shapes.bmp";
+        this.fileLocation = fileLocation;
+    }
