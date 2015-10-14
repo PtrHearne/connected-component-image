@@ -45,4 +45,14 @@ public class ConnectedComponentImageTest {
     public void testBinaryComponentImage() throws Exception {
 
     }
+
+    @Test
+    public void testGetFileLocation() throws Exception {
+
+    }
+
+    @Test
+    public void testSetFileLocation() throws Exception {
+
+    }
 }

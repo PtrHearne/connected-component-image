@@ -1,8 +1,11 @@
 package imageProcessing;
 
 
-import java.awt.Color;
 import edu.princeton.cs.introcs.Picture;
+import edu.princeton.cs.introcs.In;
+import java.awt.*;
+
+
 /*************************************************************************
  * Compilation: javac ConnectedComponentImage.java
  *
@@ -15,21 +18,16 @@ import edu.princeton.cs.introcs.Picture;
  *************************************************************************/
 public class ConnectedComponentImage {
 
-    static Long     counter = 0l;
-    private String  fileLocation;
-    private Picture picture;
-    private int     height;
-    private int     width;
-    public Long     id;
+    public String  fileLocation;
+    public Picture picture;
 
 
 
-    public ConnectedComponentImage(String fileLocation) {
-        this.fileLocation = fileLocation;
-        this.picture      = new picture(fileLocation);
-        this.id           = counter++;
-        this.height       = new height;
-        this.width        = new width;
+
+    public ConnectedComponentImage(String fileLocation,Picture picture) {
+        this.fileLocation = new fileLocation;
+        this.picture      = new picture;
+
     }
 
 
@@ -84,25 +82,21 @@ public class ConnectedComponentImage {
           if(picture != null) {
               int width = picture.width();
               int height = picture.height();
+              double thresholdPixelValue = 128.0;
               // convert to grayscale
               for (int x = 0; x < width; x++) {
                   for (int y = 0; y < height; y++) {
-                      Color color = picture.get(x, y);
-                      Color gray = Luminance.toGray(color);
-                      picture.set(x, y, gray);
+                      Color c = picture.get(x, y);
+                      if (Luminance.lum(c) < thresholdPixelValue) {
+                          picture.set(x, y, Color.BLACK);
+                      } else {
+                          picture.set(x, y, Color.WHITE);
+                      }
                   }
-                  picture.show();
               }
-          }
+          }picture.show();
         return null;
     }
 
-    public String getFileLocation() {
 
-        return fileLocation;
-    }
-
-    public void setFileLocation(String fileLocation) {
-        fileLocation = "C:/Users/Owner/IdeaProjects/connected-component-image/images/shapes.bmp";
-        this.fileLocation = fileLocation;
-    }
+}
