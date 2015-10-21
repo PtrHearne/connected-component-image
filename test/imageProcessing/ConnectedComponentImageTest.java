@@ -1,5 +1,6 @@
 package imageProcessing;
 
+import edu.princeton.cs.introcs.Picture;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,6 +42,8 @@ public class ConnectedComponentImageTest {
 
     }
 
+
+
     @Test
     public void testBinaryComponentImage() throws Exception {
 
@@ -55,4 +58,7 @@ public class ConnectedComponentImageTest {
     public void testSetFileLocation() throws Exception {
 
     }
+
+
+
 }
