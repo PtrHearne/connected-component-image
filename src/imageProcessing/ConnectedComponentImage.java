@@ -19,7 +19,8 @@ import java.awt.*;
 public class ConnectedComponentImage {
 
     public Picture picture;
-
+    private int[] id;
+    private int count;
 
 
 
@@ -52,19 +53,13 @@ public class ConnectedComponentImage {
         int minX = picture.width();
         int maxY = 0;
         int minY = picture.height();
-
         for (int x = 0; x < picture.width(); x++) {
             for (int y = 0; y < picture.height(); y++) {
                 if (!picture.get(x, y).equals(Color.WHITE) ) {
-
-                    if (x < minX)
-                        minX = x;
-                    if (x > maxX)
-                        maxX = x;
-                    if (y < minY)
-                        minY = y;
-                    if (y > maxY)
-                        maxY = y;
+                    if (x < minX) minX = x;
+                    if (x > maxX) maxX = x;
+                    if (y < minY) minY = y;
+                    if (y > maxY) maxY = y;
 
                 }
             }
@@ -89,11 +84,7 @@ public class ConnectedComponentImage {
         return null;
     }
 
-
-
-
-
-    /**
+        /**
      * Returns a picture with each object updated to a random colour.
      *
      * @return a picture object with all components coloured.
@@ -140,7 +131,7 @@ public class ConnectedComponentImage {
 
     public Picture binaryComponentImage() {
 
-        picture = getPicture();
+       // picture = getPicture();
         if (picture != null) {
             int width = picture.width();
             int height = picture.height();
@@ -160,6 +151,8 @@ public class ConnectedComponentImage {
         picture.show();
         return null;
     }
+
+
 }
 
 
