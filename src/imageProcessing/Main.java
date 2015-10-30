@@ -1,11 +1,8 @@
 package imageProcessing;
 
-import edu.princeton.cs.introcs.Picture;
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
-import java.awt.*;
-import java.util.Scanner;
 
 /**
  * Created by Owner on 10/21/2015.
@@ -13,6 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     private ConnectedComponentImage cc;
+
 
 
     public Main (){
@@ -95,6 +93,8 @@ public class Main {
                 case 2:    cc.colourComponentImage();
                     break;
                 case 3:    cc.identifyComonentImage();
+                    break;
+               case 4:    cc.countComponents();
                     break;
                 default:    StdOut.println("Invalid option entered: " + option);
                     break;
