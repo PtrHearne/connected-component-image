@@ -10,7 +10,7 @@ import edu.princeton.cs.introcs.StdOut;
 public class Main {
 
     private ConnectedComponentImage cc;
-
+    private CountComponent cd;
 
 
     public Main (){
@@ -46,7 +46,8 @@ public class Main {
         StdOut.println("---------");
         StdOut.println("  1) binaryComponentImage");
         StdOut.println("  2) colourComponentImage");
-        StdOut.println("  3) identifyComonentImage");
+        StdOut.println("  3) identifyComponentImage");
+        StdOut.println("  4) CountComponentImage");
         StdOut.println("  0) Exit");
         StdOut.print("==>> ");
         int option = StdIn.readInt();
@@ -85,7 +86,7 @@ public class Main {
             StdOut.println("\nPress any key to continue...");
 
 
-            //clear the terminal window and display the main menu again
+
 
             switch (option = menuTwo()) {
                 case 1:    cc.binaryComponentImage();
@@ -94,7 +95,7 @@ public class Main {
                     break;
                 case 3:    cc.identifyComonentImage();
                     break;
-               case 4:    cc.countComponents();
+                case 4:    cc.countComponents();
                     break;
                 default:    StdOut.println("Invalid option entered: " + option);
                     break;
@@ -103,7 +104,7 @@ public class Main {
             option = menuTwo();
         }
 
-        //the user chose option 0, so exit the program
+
         StdOut.println("Exiting... bye");
         System.exit(0);
     }

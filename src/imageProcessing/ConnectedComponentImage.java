@@ -3,10 +3,10 @@ package imageProcessing;
 
 import edu.princeton.cs.introcs.Picture;
 import edu.princeton.cs.introcs.StdOut;
-
+import java.util.Random;
 import java.awt.*;
 
-import static java.awt.Color.BLACK;
+
 
 
 /*************************************************************************
@@ -20,9 +20,9 @@ import static java.awt.Color.BLACK;
  *
  *************************************************************************/
 public class ConnectedComponentImage {
-
+    Random rand = new Random();
     public Picture picture;
-    public int count;
+
 
 
     public ConnectedComponentImage(String fileLocation) {
@@ -40,11 +40,12 @@ public class ConnectedComponentImage {
      * @param //count
      */
 
-    public int countComponents() {
+   public int countComponents() {
 
-         CountComponent countComponent = new CountComponent();
-        return count;
-    }
+       return 0;
+   }
+
+
 
 
 
@@ -90,8 +91,10 @@ public class ConnectedComponentImage {
             }
 
             picture.show();
+
             return null;
         }
+
 
 
         /**
@@ -105,12 +108,17 @@ public class ConnectedComponentImage {
             int width = picture.width();
             int height = picture.height();
             double thresholdPixelValue = 128.0;
+            float r = rand.nextFloat();
+            float g = rand.nextFloat();
+            float b = rand.nextFloat();
+            Color randomColor = new Color(r, g, b);
 
             for (int x = 0; x < width; x++) {
                 for (int y = 0; y < height; y++) {
                     Color c = picture.get(x, y);
                     if (Luminance.lum(c) < thresholdPixelValue) {
-                        picture.set(x, y, Color.RED);
+
+                        picture.set(x, y, randomColor);
                     } else {
                         picture.set(x, y, Color.WHITE);
                     }
@@ -126,8 +134,7 @@ public class ConnectedComponentImage {
 
 
         public Picture getPicture () {
-
-           // Picture picture = new Picture("C:/Users/Owner/IdeaProjects/connected-component-image/images/shapes.bmp");
+            Picture picture = new Picture("C:/Users/Owner/IdeaProjects/connected-component-image/images/shapes.bmp");
 
             return picture;
         }
@@ -141,17 +148,17 @@ public class ConnectedComponentImage {
 
     public Picture binaryComponentImage() {
 
-       // picture = getPicture();
+
         if (picture != null) {
             int width = picture.width();
             int height = picture.height();
             double thresholdPixelValue = 128.0;
-            // convert to grayscale
+
             for (int x = 0; x < width; x++) {
                 for (int y = 0; y < height; y++) {
                     Color c = picture.get(x, y);
                     if (Luminance.lum(c) < thresholdPixelValue) {
-                        picture.set(x, y, BLACK);
+                        picture.set(x, y,Color.BLACK);
                     } else {
                         picture.set(x, y, Color.WHITE);
                     }

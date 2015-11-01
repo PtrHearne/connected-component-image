@@ -28,7 +28,7 @@ public class ConnectedComponentImageTest {
     }
 
     @Test
-    public void testIdentifyComonentImage() throws Exception {
+    public void testIdentifyCompponentImage() throws Exception {
 
     }
 
